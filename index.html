@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Chatbot</title>
+    <link rel="icon" type="image/jpeg" href="https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg?semt=ais_hybrid&w=740&q=80">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#60a5fa',
+                        'dark-bg': 'var(--color-bg-primary)',
+                        'card-bg': 'var(--color-bg-card)',
+                        'light-text': 'var(--color-text)',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-dark-bg text-light-text transition-colors duration-300">
+    <div class="page-container flex flex-col items-center p-4 sm:p-8">
+
+        <header class="w-full max-w-4xl flex justify-between items-center py-4 px-2">
+
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-primary-blue shadow-lg">
+                FRIDAY The Book Chatbot
+            </h1>
+            <button id="theme-toggle"
+                class="p-2 rounded-full text-2xl bg-card-bg hover:bg-opacity-80 transition-colors duration-300 shadow-xl"
+                aria-label="Switch between light and dark mode">
+                <span id="theme-icon">🌞</span>
+            </button>
+        </header>
+
+        <main class="w-full max-w-4xl my-4 sm:my-8 p-4 sm:p-8 rounded-2xl shadow-2xl theme-bg-card main-content-area">
+            <p class="text-center italic opacity-75 mb-4">
+                Your dedicated book chatbot is ready! Find the chat icon in the bottom right corner and start asking
+                questions about any book—or even novels
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-xl theme-bg-card shadow-md border border-gray-700/50">
+                    <h2 class="text-xl font-semibold mb-2 text-primary-blue">Authorial Assistance & Feedback</h2>
+                    <p class="text-sm opacity-90">
+                        As for books, I have access to a massive and diverse collection of text and code. While I don't
+                        "read" a book cover-to-cover in the human sense, I've been trained on a vast library that
+                        includes fiction, non-fiction, poetry, and dramatic works from nearly every genre and era.
+
+                        So, please feel free to ask me about any specific book, author, or literary concept you're
+                        curious about!
+
+
+                    </p>
+                </div>
+                <div class="p-4 rounded-xl theme-bg-card shadow-md border border-gray-700/50">
+                    <h2 class="text-xl font-semibold mb-2 text-primary-blue">Recommendations</h2>
+                    <p class="text-sm opacity-90">
+                        Get personalized book recommendations based on your mood or reading history.
+                    </p>
+                </div>
+            </div>
+        </main>
+        <footer class="w-full max-w-4xl py-4 text-center text-sm opacity-60">
+            &copy; All rights reserved by Vedant Dubey.
+        </footer>
+    </div>
+    <script src="theme-toggle.js"></script>
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "1deff19e-ce1d-4e7b-bd73-947629d0ddd8",
+            region: "au-syd",
+            serviceInstanceID: "4964eb44-91f0-469c-9bc5-e78137a4a565",
+            onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+        });
+    </script>
+</body>
+
+</html>
